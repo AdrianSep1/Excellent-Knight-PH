@@ -1,0 +1,230 @@
+@font-face {
+    font-family: 'Aharoni';
+    src: local('Aharoni');
+}
+
+:root {
+    --primary-color: #e07604;
+    --primary-hover-color: #d06500;
+    --background-color: rgba(252, 252, 252, 0.85);
+    --text-color: #333;
+    --border-color: #cecdcd;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Aharoni', Arial, sans-serif;
+}
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Aligns to the top */
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark transparent black */
+    padding: 1rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed; /* Make the container fixed */
+    top: 0; /* Align to the top */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensure it's on top */
+}
+
+.register-form {
+    background-color: var(--background-color);
+    padding: 2rem;
+    border-radius: 30px;
+    width: 100%;
+    background-color: rgba(205, 210, 183, 0.7); /* Dark transparent black */
+    max-width: 800px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative; /* Ensure the form stays inside the container */
+    top: 5%; /* Move the form up a bit */
+}
+
+.register-form h1 {
+    font-size: 24px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.register-form label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Consolidated styling for input and select elements */
+.register-form input,
+.register-form select {
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    margin-bottom: 1rem;
+    font-size: 16px;
+    width: 100%; /* Ensure uniform width */
+    box-sizing: border-box; /* Prevent sizing issues */
+    background-color: white; /* Consistent background for select */
+    appearance: none; /* Removes native dropdown styles for consistency */
+}
+
+/* Motorcycle model dropdown specific styles */
+.motorcycle-model-select {
+    background-color: #f9f9f9; /* Slightly different color for model */
+    color: var(--text-color);
+}
+
+/* Motorcycle version dropdown specific styles */
+.motorcycle-version-select {
+    background-color: #ffffff;
+    color: var(--text-color);
+}
+
+.register-form input:focus,
+.register-form select:focus {
+    border-color: var(--primary-color); /* Match input focus style */
+    background-color: #f0f8ff; /* Subtle background change on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional light shadow */
+}
+
+.register-form button {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 30px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 1rem;
+}
+
+.register-form button:hover {
+    background-color: var(--primary-hover-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.register-form button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional focus effect */
+}
+
+.login-link {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link:hover {
+    color: var(--primary-hover-color);
+    text-decoration: underline;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align modal to the top */
+    padding-top: 2rem; /* Adjust for some space from the top */
+  }
+  
+  .modal {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .modal.success {
+    border: 2px solid green;
+  }
+  
+  .modal.error {
+    border: 2px solid red;
+  }
+  
+  .modal button {
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Green for success */
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .modal.error button {
+    background-color: red;
+  }
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+    .register-form {
+        padding: 1.5rem;
+    }
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+    .register-form h1 {
+        font-size: 20px;
+    }
+
+    .register-form input,
+    .register-form select {
+        padding: 0.7rem;
+        font-size: 14px;
+    }
+    .register-form button {
+        font-size: 14px;
+        padding: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-form h1 {
+        font-size: 18px;
+    }
+    .register-form {
+        padding: 1rem;
+    }
+    .register-form button {
+        font-size: 14px;
+        padding: 0.6rem;
+    }
+}
